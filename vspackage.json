@@ -1,0 +1,9 @@
+{
+    "name": "voxelscript_useful_programs",
+    "title": "Voxelscript Useful Programs",
+    "author": "David Santamaria",
+    "description": "Datastructures and Algorithms for Voxelscript",
+    "main": "Main",
+    "environment": "Env",
+    "dependencies": []
+}
