@@ -1,5 +1,5 @@
 class Quicksort {
-    void quicksort(int[] arr, int len);
+    void quicksort(int[] arr);
 }
 
 implement Quicksort {
@@ -32,8 +32,8 @@ implement Quicksort {
         }
     }
 
-    void quicksort(int[] arr, int len) {
-        this.__quick_sort(arr, 0, len);
+    void quicksort(int[] arr) {
+        this.__quick_sort(arr, 0, arr.size() - 1);
     }
 }
 

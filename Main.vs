@@ -14,7 +14,7 @@ implement Main {
         Quicksort q = new Quicksort();
         Mergesort m = new Mergesort();
         //q.quicksort(arr, 9);
-        m.mergesort(arr, 9);
+        m.mergesort(arr);
         for (int i = 0; i < 10; i++) {
             raw_print(arr[i], " ");
         }
