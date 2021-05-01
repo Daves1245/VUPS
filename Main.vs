@@ -10,14 +10,15 @@ class Main {
 implement Main {
     init() {
         Heap<BigInteger> heap = new Heap<BigInteger>();
-        int[] arr = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-        Quicksort q = new Quicksort();
-        Mergesort m = new Mergesort();
-        //q.quicksort(arr, 9);
-        m.mergesort(arr);
-        for (int i = 0; i < 10; i++) {
-            raw_print(arr[i], " ");
+        int[] arr = [50];
+        for (int i = 1; i < 100000; i++) {
+            arr.push(100000 - i);
         }
+        Quicksort q = new Quicksort();
+        //Mergesort m = new Mergesort();
+        //print(arr);
+        print("ready, set, GO!");
+        q.quicksort(arr);
     }
 }
 

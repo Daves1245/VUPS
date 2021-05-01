@@ -3,16 +3,10 @@ class Mergesort {
 }
 
 implement Mergesort {
-    void p(int[] arr) {
-        for (int i = 0; i < arr.size(); i++) {
-            raw_print(arr[i], " ");
-        }
-        print();
-    }
     void merge(int[] arr, int l, int m, int r) {
         int a = 0;
         int b = 0;
-        int c = 0;
+        int c = l;
         int n1 = m - l + 1;
         int n2 = r - m;
         int[] left = [];
@@ -25,18 +19,7 @@ implement Mergesort {
             right.push(arr[m + 1 + i]);
         }
 
-        raw_print("left: ");
-        this.p(left);
-        raw_print("left.size(): ", left.size());
-
-        raw_print(" right: ");
-        this.p(right);
-        raw_print("right.size(): ", right.size());
-
-        print(" n1: ", n1, "n2: ", n2);
-
         while (a < n1 && b < n2) {
-        this.p(arr);
             if (left[a] <= right[b]) {
                 arr[c] = left[a];
                 a++;
@@ -44,20 +27,13 @@ implement Mergesort {
                 arr[c] = right[b];
                 b++;
             }
-            this.p(arr);
             c++;
         }
-        print("a is ", a, " and b is ", b);
-        raw_print("left before while: ");
-        this.p(left);
         while (a < n1) {
             arr[c] = left[a];
             a++;
             c++;
         }
-
-        raw_print("right before while: ");
-        this.p(right);
         while (b < n2) {
             arr[c] = right[b];
             b++;
