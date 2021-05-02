@@ -17,4 +17,10 @@ implement Comparable on BigInteger {
     }
 }
 
+implement Eq on BigInteger {
+    bool is_equal(Eq e) {
+        return this.val == <int>((<BigInteger>e).val);
+    }
+}
+
 export {BigInteger};

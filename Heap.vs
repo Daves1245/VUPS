@@ -1,8 +1,8 @@
 import Operators;
 
 class Heap<Element: Comparable> {
-    //Element[] arr;
-    //int size;
+    Element[] arr;
+    int size;
 }
 
 implement Heap<Element> {
