@@ -53,7 +53,7 @@ implement StringUtil {
         int prev_index = 0;
         
         for (index = this.findOffset(source, delimeter, offset); index != -1; prev_index = index) {
-            ret.push(source.substring(prev_index, index));
+            //ret.push(source.substring(prev_index, index));
         }
 
         return ret;
@@ -64,7 +64,7 @@ implement StringUtil {
     }
 
     Optional<int> to_int(string source) {
-    
+
     }
 
     Optional<float> to_float(string source) {

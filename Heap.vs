@@ -3,13 +3,16 @@ import Operators;
 class Heap<Element: Comparable> {
     Element[] arr;
     int size;
+
+    Element pop();
+    void push(Element e);
 }
 
 implement Heap<Element> {
-    void swap(Element[] arr, int a, int b) {
-        Element tmp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = tmp;
+    void swap(int a, int b) {
+        Element tmp = this.arr[a];
+        this.arr[a] = this.arr[b];
+        this.arr[b] = tmp;
     }
 
     int parent(int i) {
@@ -22,56 +25,60 @@ implement Heap<Element> {
         return 2 * i + 1;
     }
 
-    void percolateDown(Element[] arr, int i) {
+    void percolateDown(int i) {
         int swapi = i;
-        if (this.left(i) <= this.size && arr[i].compareTo(arr[this.left(i)]) < 0) {
+        if (this.left(i) <= this.size && this.arr[i].compareTo(this.arr[this.left(i)]) < 0) {
             swapi = this.left(i);
         }
-        if (this.right(i) <= this.size && arr[i].compareTo(arr[this.right(i)]) < 0) {
+        if (this.right(i) <= this.size && this.arr[i].compareTo(this.arr[this.right(i)]) < 0) {
             swapi = this.right(i);
         }
         if (swapi != i) {
-            this.swap(arr, swapi, i);
+            this.swap(swapi, i);
         }
     }
 
-    void percolateUp(Element[] arr, int i) {
-        while (i != 0 && arr[i].compareTo(arr[this.parent(i)]) != 0) {
-            this.swap(arr, i, this.parent(i));
+    void percolateUp(int i) {
+        while (i != 0 && this.arr[i].compareTo(this.arr[this.parent(i)]) != 0) {
+            this.swap(i, this.parent(i));
             i = this.parent(i);
         }
     }
 
-    void insert(Element[] arr, Element val) {
-        if (this.size == arr.size()) {
-            arr.resize(2 * arr.size());
+    void insert(Element val) {
+        if (this.size == this.arr.size()) {
+            this.arr.resize(2 * this.arr.size());
         }
         this.size++;
-        arr[this.size] = val;
-        this.percolateUp(arr, this.size);
+        this.arr[this.size] = val;
+        this.percolateUp(this.size);
     }
 
-    Element pop(Element[] arr) {
-        Element ret = arr[0];
-        this.swap(arr, 0, this.size);
+    void push(Element e) {
+        this.insert(e);
+    }
+
+    Element pop() {
+        Element ret = this.arr[0];
+        this.swap(0, this.size);
         this.size--;
-        this.percolateDown(arr, 0);
+        this.percolateDown(0);
         return ret;
     }
 
-    void build_heap(Element[] arr) {
-        this.size = arr.size();
+    void build_heap() {
+        this.size = this.arr.size();
         for (int i = this.size; i >= 0; i--) {
-            this.percolateDown(arr, i);
+            this.percolateDown(i);
         }
     }
 
-    void heapsort(Element[] arr) {
-        this.build_heap(arr);
-        for (int i = arr.size(); i >= 0; i--) {
-            this.swap(arr, i, 0);
+    void heapsort() {
+        this.build_heap();
+        for (int i = this.arr.size(); i >= 0; i--) {
+            this.swap(i, 0);
             this.size--;
-            this.percolateDown(arr, 0);
+            this.percolateDown(0);
         }
     }
 }
