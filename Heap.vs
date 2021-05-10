@@ -1,14 +1,19 @@
 import Operators;
 
 class Heap<Element: Comparable> {
-    Element[] arr;
-    int size;
-
     Element pop();
     void push(Element e);
+    int size();
 }
 
 implement Heap<Element> {
+    Element[] arr;
+    int _size;
+
+    int size() {
+        return this._size;
+    }
+
     void swap(int a, int b) {
         Element tmp = this.arr[a];
         this.arr[a] = this.arr[b];
@@ -27,10 +32,10 @@ implement Heap<Element> {
 
     void percolateDown(int i) {
         int swapi = i;
-        if (this.left(i) <= this.size && this.arr[i].compareTo(this.arr[this.left(i)]) < 0) {
+        if (this.left(i) <= this.size() && this.arr[i].compareTo(this.arr[this.left(i)]) < 0) {
             swapi = this.left(i);
         }
-        if (this.right(i) <= this.size && this.arr[i].compareTo(this.arr[this.right(i)]) < 0) {
+        if (this.right(i) <= this.size() && this.arr[i].compareTo(this.arr[this.right(i)]) < 0) {
             swapi = this.right(i);
         }
         if (swapi != i) {
@@ -46,12 +51,12 @@ implement Heap<Element> {
     }
 
     void insert(Element val) {
-        if (this.size == this.arr.size()) {
+        if (this.size() == this.arr.size()) {
             this.arr.resize(2 * this.arr.size());
         }
-        this.size++;
-        this.arr[this.size] = val;
-        this.percolateUp(this.size);
+        this._size++;
+        this.arr[this.size()] = val;
+        this.percolateUp(this.size());
     }
 
     void push(Element e) {
@@ -60,15 +65,15 @@ implement Heap<Element> {
 
     Element pop() {
         Element ret = this.arr[0];
-        this.swap(0, this.size);
-        this.size--;
+        this.swap(0, this.size());
+        this._size--;
         this.percolateDown(0);
         return ret;
     }
 
     void build_heap() {
-        this.size = this.arr.size();
-        for (int i = this.size; i >= 0; i--) {
+        this._size = this.arr.size();
+        for (int i = this.size(); i >= 0; i--) {
             this.percolateDown(i);
         }
     }
@@ -77,7 +82,7 @@ implement Heap<Element> {
         this.build_heap();
         for (int i = this.arr.size(); i >= 0; i--) {
             this.swap(i, 0);
-            this.size--;
+            this._size--;
             this.percolateDown(0);
         }
     }
