@@ -5,40 +5,50 @@ import Mergesort;
 import Collections;
 import Set;
 
-typedef bigfunction = () => bool;
-
 class Main {
     init();
+    BigInteger<test> asdf();
 }
 
 implement Main {
     init() {
-    /*
-        Heap<BigInteger> heap = new Heap<BigInteger>();
-        BigInteger[] arr = [50];
+        // ===========
+        // BigInteger
+        // ===========
+        BigInteger[] arr = [];
         for (int i = 1; i < 10000; i++) {
-            arr.push(new BigInteger(10000 - i));
+            arr.push(new BigInteger(i));
         }
 
+        // TODO: Static methods so that you can do
+        // Collections<BigInteger>::shuffle
+        // rather than instantiate a class for it
         Collections<BigInteger> c = new Collections<BigInteger>();
-        /*
-        BigInteger[] numbers = [new BigInteger(1), new BigInteger(2), new BigInteger(3),
-            new BigInteger(4), new BigInteger(5), new BigInteger(6), new BigInteger(7),
-            new BigInteger(8), new BigInteger(9), new BigInteger(10)];
         c.shuffle(arr);
-        */
-        //print(arr);
 
-        Set<BigInteger> set = new Set<BigInteger>();
-        set.insert(new BigInteger(10));
-        set.insert(new BigInteger(10));
-        set.insert(new BigInteger(5));
+        // Make a "PriorityQueue" Heap,
+        // which requires traits Comparable and Eq
+        // to be implemented
+        Heap<BigInteger> heap = new Heap<BigInteger>();
+        heap.insert(arr[0]);
+        heap.insert(arr[1]);
+        heap.insert(arr[2]);
+        // heap.pop() should be the smallest of arr[0],arr[1],arr[2]
+        print(arr[0], arr[1], arr[2], heap.pop());
+
+        // ===========
+        // int
+        // ===========
+        Set<int> set = new Set<int>();
+        set.insert(10);
+        set.insert(10);
+        set.insert(5);
 
         
         print(set);
         print(set.size());
-        print(set.contains(new BigInteger(6)));
-        print(set.contains(new BigInteger(5)));
+        print(set.contains(6));
+        print(set.contains(5));
         
         //print("Ready, set, GO!");
         Quicksort q = new Quicksort();

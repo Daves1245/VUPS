@@ -1,6 +1,7 @@
 import Operators;
 
 class Heap<Element: Comparable> {
+    init();
     Element pop();
     void push(Element e);
     int size();
@@ -9,6 +10,14 @@ class Heap<Element: Comparable> {
 implement Heap<Element> {
     Element[] arr;
     int _size;
+
+    init() {
+        print("Initializing!");
+        this.arr = [];
+        this.arr.resize(1);
+        print("Arr size: ", this.arr.size());
+        this._size = 0;
+    }
 
     int size() {
         return this._size;
@@ -52,11 +61,13 @@ implement Heap<Element> {
 
     void insert(Element val) {
         if (this.size() == this.arr.size()) {
+            print("Resizing from ", this.arr.size(), " to ", 2*this.arr.size());
             this.arr.resize(2 * this.arr.size());
         }
-        this._size++;
+        print("Setting to", this.size());
         this.arr[this.size()] = val;
         this.percolateUp(this.size());
+        this._size++;
     }
 
     void push(Element e) {
