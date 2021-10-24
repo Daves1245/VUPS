@@ -17,4 +17,17 @@ trait Comparable {
     int compareTo(Comparable e);
 }
 
+
+implement Eq on int {
+    bool is_equal(Eq other) {
+        if (other is int) {
+            int v = <int>other;
+            return this == v;
+        } else {
+            return false;
+        }
+    }
+}
+
+
 export {Eq,Pair,Comparable};
