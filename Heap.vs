@@ -53,21 +53,21 @@ implement Heap<Element> {
     }
 
     void percolateUp(int i) {
-        while (i != 0 && this.arr[i].compareTo(this.arr[this.parent(i)]) != 0) {
+        while (i > 1 && this.arr[i].compareTo(this.arr[this.parent(i)]) != 0) {
             this.swap(i, this.parent(i));
             i = this.parent(i);
         }
     }
 
     void insert(Element val) {
+        this._size++;
         if (this.size() == this.arr.size()) {
             print("Resizing from ", this.arr.size(), " to ", 2*this.arr.size());
             this.arr.resize(2 * this.arr.size());
         }
-        print("Setting to", this.size());
+        print("Setting arr[", this.size(), "]");
         this.arr[this.size()] = val;
         this.percolateUp(this.size());
-        this._size++;
     }
 
     void push(Element e) {
@@ -75,23 +75,25 @@ implement Heap<Element> {
     }
 
     Element pop() {
-        Element ret = this.arr[0];
-        this.swap(0, this.size());
+        print("popping when size is ", this._size);
+        print("Elem: ", this.arr[2]);
+        Element ret = this.arr[1];
+        this.swap(1, this.size());
         this._size--;
-        this.percolateDown(0);
+        this.percolateDown(1);
         return ret;
     }
 
     void build_heap() {
         this._size = this.arr.size();
-        for (int i = this.size(); i >= 0; i--) {
+        for (int i = this.size(); i >= 1; i--) {
             this.percolateDown(i);
         }
     }
 
     void heapsort() {
         this.build_heap();
-        for (int i = this.arr.size(); i >= 0; i--) {
+        for (int i = this.arr.size(); i >= 1; i--) {
             this.swap(i, 0);
             this._size--;
             this.percolateDown(0);

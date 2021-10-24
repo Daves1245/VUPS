@@ -7,7 +7,6 @@ import Set;
 
 class Main {
     init();
-    BigInteger<test> asdf();
 }
 
 implement Main {

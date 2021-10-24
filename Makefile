@@ -1,2 +1,2 @@
 all:
-	voxelc . -o run && ./run
+	voxelc . --cpp-file=.main.cpp -o run && ./run
