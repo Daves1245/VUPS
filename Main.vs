@@ -1,5 +1,5 @@
 import BigInteger;
-import Heap;
+import PriorityQueue;
 import Quicksort;
 import Mergesort;
 import Collections;
@@ -28,7 +28,7 @@ implement Main {
         // Make a "PriorityQueue" Heap,
         // which requires traits Comparable and Eq
         // to be implemented
-        Heap<BigInteger> heap = new Heap<BigInteger>();
+        PriorityQueue<BigInteger> heap = new PriorityQueue<BigInteger>();
         heap.insert(arr[0]);
         heap.insert(arr[1]);
         heap.insert(arr[2]);

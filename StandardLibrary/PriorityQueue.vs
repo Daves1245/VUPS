@@ -1,21 +1,19 @@
 import Operators;
 
-class Heap<Element: Comparable> {
+class PriorityQueue<Element: Comparable> {
     init();
     Element pop();
     void push(Element e);
     int size();
 }
 
-implement Heap<Element> {
+implement PriorityQueue<Element> {
     Element[] arr;
     int _size;
 
     init() {
-        print("Initializing!");
         this.arr = [];
         this.arr.resize(1);
-        print("Arr size: ", this.arr.size());
         this._size = 0;
     }
 
@@ -62,10 +60,8 @@ implement Heap<Element> {
     void insert(Element val) {
         this._size++;
         if (this.size() == this.arr.size()) {
-            print("Resizing from ", this.arr.size(), " to ", 2*this.arr.size());
             this.arr.resize(2 * this.arr.size());
         }
-        print("Setting arr[", this.size(), "]");
         this.arr[this.size()] = val;
         this.percolateUp(this.size());
     }
@@ -75,8 +71,6 @@ implement Heap<Element> {
     }
 
     Element pop() {
-        print("popping when size is ", this._size);
-        print("Elem: ", this.arr[2]);
         Element ret = this.arr[1];
         this.swap(1, this.size());
         this._size--;
@@ -101,4 +95,4 @@ implement Heap<Element> {
     }
 }
 
-export {Heap};
+export {PriorityQueue};
