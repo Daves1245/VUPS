@@ -3,11 +3,11 @@ import Optional;
 class StringUtil {
     int find(string source, string key);
     int findOffset(string source, string key, int offset);
-    int findLast(string source, string key);
+    // int findLast(string source, string key);
     bool contains(string source, string key);
-    string[] split(string source, string delimeter);
-    Optional<int> to_int(string source);
-    Optional<float> to_float(string source);
+    // string[] split(string source, string delimeter);
+    // Optional<int> to_int(string source);
+    // Optional<float> to_float(string source);
 }
 
 implement StringUtil {

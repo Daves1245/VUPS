@@ -53,6 +53,11 @@ implement Main {
         Quicksort q = new Quicksort();
         Mergesort m = new Mergesort();
         //q.quicksort(arr);
+
+        print(1 & 0);
+        print(1 | 0);
+        print(1 ^ 0);
+        print(~1);
     }
 }
 

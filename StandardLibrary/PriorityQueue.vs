@@ -77,22 +77,6 @@ implement PriorityQueue<Element> {
         this.percolateDown(1);
         return ret;
     }
-
-    void build_heap() {
-        this._size = this.arr.size();
-        for (int i = this.size(); i >= 1; i--) {
-            this.percolateDown(i);
-        }
-    }
-
-    void heapsort() {
-        this.build_heap();
-        for (int i = this.arr.size(); i >= 1; i--) {
-            this.swap(i, 0);
-            this._size--;
-            this.percolateDown(0);
-        }
-    }
 }
 
 export {PriorityQueue};

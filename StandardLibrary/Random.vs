@@ -1,10 +1,10 @@
-class Random {
+class InternalRandom {
     init();
     int iseed;
     int rand();
 }
 
-implement Random {
+implement InternalRandom {
     init() {
         this.iseed = <int>time();
     }
@@ -13,5 +13,7 @@ implement Random {
         return this.iseed;
     }
 }
+
+InternalRandom Random = new InternalRandom();
 
 export {Random};
